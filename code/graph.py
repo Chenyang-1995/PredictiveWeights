@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import defaultdict
 from itertools import chain, combinations
-import draw
+
 
 
 from vertex import Impression,Advertiser
@@ -465,17 +465,7 @@ class Graph:
 
 
 
-        x_list = [i for i in range(len(self.Im_id_list))]
-        draw.draw_competitive_ratio_over_impression_ratio(x_list, self.Im_size_list,
-                                                          fname='Large_Impression_size.jpg',
-                                                          x_label='Impression_id',
-                                                          y_label='Impression_size')
 
-        x_list = [i for i in range(len(self.Ad_id_list))]
-        draw.draw_competitive_ratio_over_impression_ratio(x_list, self.Ad_capacity_list,
-                                                          fname='Large_Account_capacity.jpg',
-                                                          x_label='Advertiser_id',
-                                                          y_label='Advertiser_size')
 
 
         print(logging_str)

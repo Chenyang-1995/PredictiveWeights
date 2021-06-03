@@ -3,11 +3,13 @@ import numpy as np
 import numpy.random as random
 import mmap
 import sys
+import time
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import defaultdict
 from itertools import chain, combinations
 import draw
+
 
 from vertex import Impression,Advertiser
 
@@ -625,6 +627,7 @@ class Graph:
 
     def train_ad_weights(self,train_ratio=0.01,num_iterations = 3000//500):
         print("Start training advertiser weights with train ratio {}".format(train_ratio))
+        start_time = time.time()
         self.train_init()
 
         self.sample_im_train(train_ratio=train_ratio)
@@ -670,6 +673,9 @@ class Graph:
         self.show_alloc(train=True)
         for account_id in self.Ad_id_list:
             self.Ad_dict[account_id].re_init()
+
+        end_time = time.time()
+        print("Finish training advertiser weights with train ratio {0}, time = {1} min".format(train_ratio,(end_time-start_time)//60))
         return self.Ratio
 
     def PW(self,improved, mode='random', train_ratio=0.01,graph=None):

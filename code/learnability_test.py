@@ -36,6 +36,8 @@ def learnability_test(csv_fname_list,load_mode='least-degree',arriving_order='ra
             today_graph = Graph(today_df,load_mode=load_mode)
 
             num_loop = 4
+
+            
             ratio = [today_graph.G(mode=arriving_order) for _ in range(num_loop)]
             G_ratio.append(ratio)
             logging_str += 'G = {}\n'.format(G_ratio)

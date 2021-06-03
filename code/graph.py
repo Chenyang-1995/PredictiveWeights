@@ -665,7 +665,7 @@ class Graph:
             self.Ad_dict[account_id].re_init()
 
         end_time = time.time()
-        print("Finish training advertiser weights with train ratio {0}, time = {1} min".format(train_ratio,(end_time-start_time)//60))
+        print("Finish training advertiser weights with train ratio {0}, time = {1} s".format(train_ratio,int(end_time-start_time)))
         return self.Ratio
 
     def PW(self,improved, mode='random', train_ratio=0.01,graph=None):
